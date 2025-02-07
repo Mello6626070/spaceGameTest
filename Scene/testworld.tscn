@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drdbevubm7jjn"]
+
+[ext_resource type="Texture2D" uid="uid://bg6jp24sxypgu" path="res://Assets/space_breaker_asset/Background/stars_texture.png" id="1_hiq8x"]
+[ext_resource type="PackedScene" uid="uid://boukx5d4sftwv" path="res://Scene/behemoth.tscn" id="2_ias1o"]
+
+[node name="testworld" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_hiq8x")
+
+[node name="Behemoth" parent="." instance=ExtResource("2_ias1o")]
+position = Vector2(564, 308)
