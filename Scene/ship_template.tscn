@@ -1,6 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf2vllg8elrkg"]
+[gd_scene load_steps=11 format=3 uid="uid://bf2vllg8elrkg"]
 
 [ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_6d0q3"]
+[ext_resource type="Texture2D" uid="uid://cryum3p2uegee" path="res://Assets/simple_symbols_2.png" id="2_cs6vx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbsn1"]
+atlas = ExtResource("2_cs6vx")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5de1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbsn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7ymk"]
+atlas = ExtResource("2_cs6vx")
+region = Rect2(128, 320, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbbs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7ymk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2kkg"]
+atlas = ExtResource("2_cs6vx")
+region = Rect2(128, 464, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dl1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2kkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qkd"]
+atlas = ExtResource("2_cs6vx")
+region = Rect2(80, 464, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgaun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qkd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
 [node name="ShipTemplate" type="CharacterBody2D"]
 script = ExtResource("1_6d0q3")
@@ -16,4 +77,27 @@ script = ExtResource("1_6d0q3")
 [node name="EngineContainer" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+
+[node name="TargetRotation" type="Node2D" parent="."]
+
+[node name="TargetRotationSprite" type="AnimatedSprite2D" parent="TargetRotation"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_5de1o")
+autoplay = "default"
+frame_progress = 0.339729
+
+[node name="Heading" type="Node2D" parent="."]
+
+[node name="HeadingSprite" type="AnimatedSprite2D" parent="Heading"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tbbs0")
+autoplay = "default"
+
+[node name="VelocityHeading" type="Node2D" parent="."]
+
+[node name="VelocityProgradeSprite" type="AnimatedSprite2D" parent="VelocityHeading"]
+sprite_frames = SubResource("SpriteFrames_0dl1q")
+
+[node name="VelocityRetrogradeSprite" type="AnimatedSprite2D" parent="VelocityHeading"]
+sprite_frames = SubResource("SpriteFrames_cgaun")
+autoplay = "default"

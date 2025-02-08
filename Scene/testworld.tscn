@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://boukx5d4sftwv" path="res://Scene/behemoth.tscn" id="2_ias1o"]
 
 [node name="testworld" type="Node2D"]
+position = Vector2(32, -62)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -14,4 +15,6 @@ motion_mirroring = Vector2(2048, 2048)
 texture = ExtResource("1_hiq8x")
 
 [node name="Behemoth" parent="." instance=ExtResource("2_ias1o")]
-position = Vector2(564, 308)
+position = Vector2(1029, 1212)
+DryMass = 100000.0
+RCSForce = 10000.0

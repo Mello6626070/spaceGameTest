@@ -1,16 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://boukx5d4sftwv"]
+[gd_scene load_steps=4 format=3 uid="uid://boukx5d4sftwv"]
 
 [ext_resource type="PackedScene" uid="uid://bf2vllg8elrkg" path="res://Scene/ship_template.tscn" id="1_bnogl"]
 [ext_resource type="Texture2D" uid="uid://wx1jmbog36lw" path="res://Assets/space_breaker_asset/Ships/Big/body_01.png" id="2_xsoo7"]
+[ext_resource type="PackedScene" uid="uid://b2214csgxr3y" path="res://Scene/turret.tscn" id="3_ikr16"]
 
 [node name="Behemoth" instance=ExtResource("1_bnogl")]
 EngineForce = 100000.0
-RSCForce = 10000.0
 
 [node name="ShipSprite" parent="." index="0"]
 rotation = 1.5708
 texture = ExtResource("2_xsoo7")
 
-[node name="ShipCollision" parent="." index="1"]
-visible = false
-polygon = PackedVector2Array(-16, -127, 16, -127, 45, -98, 45, -30, 36, -21, 36, 27, 52, 58, 52, 90, 36, 106, 36, 114, 23, 127, -23, 127, -36, 114, -36, 106, -52, 90, -52, 58, -36, 27, -36, -21, -45, -30, -45, -98)
+[node name="WeaponMountContainer#Node2D2" type="Node2D" parent="WeaponMountContainer" index="0"]
+position = Vector2(48, 16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D2" index="0" instance=ExtResource("3_ikr16")]
+rotation = 1.5708
+
+[node name="WeaponMountContainer#Node2D3" type="Node2D" parent="WeaponMountContainer" index="1"]
+position = Vector2(16, -16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D3" index="0" instance=ExtResource("3_ikr16")]
+
+[node name="WeaponMountContainer#Node2D4" type="Node2D" parent="WeaponMountContainer" index="2"]
+position = Vector2(16, 16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D4" index="0" instance=ExtResource("3_ikr16")]
+
+[node name="WeaponMountContainer#Node2D5" type="Node2D" parent="WeaponMountContainer" index="3"]
+position = Vector2(-16, -16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D5" index="0" instance=ExtResource("3_ikr16")]
+
+[node name="WeaponMountContainer#Node2D6" type="Node2D" parent="WeaponMountContainer" index="4"]
+position = Vector2(-16, 16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D6" index="0" instance=ExtResource("3_ikr16")]
+
+[node name="WeaponMountContainer#Node2D" type="Node2D" parent="WeaponMountContainer" index="5"]
+position = Vector2(48, -16)
+
+[node name="Turret" parent="WeaponMountContainer/WeaponMountContainer#Node2D" index="0" instance=ExtResource("3_ikr16")]
+
+[node name="EngineContainer#Node2D" type="Node2D" parent="EngineContainer" index="0"]
+position = Vector2(-118, -27)
+
+[node name="EngineContainer#Node2D2" type="Node2D" parent="EngineContainer" index="1"]
+position = Vector2(-118, 27)
+
+[node name="TargetRotationSprite" parent="TargetRotation" index="0"]
+position = Vector2(174, 0)
+
+[node name="HeadingSprite" parent="Heading" index="0"]
+position = Vector2(173, 0)
+
+[node name="VelocityProgradeSprite" parent="VelocityHeading" index="0"]
+position = Vector2(173, 0)
+
+[node name="VelocityRetrogradeSprite" parent="VelocityHeading" index="1"]
+position = Vector2(-178, 0)
