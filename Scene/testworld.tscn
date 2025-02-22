@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://drdbevubm7jjn"]
+[gd_scene load_steps=5 format=3 uid="uid://drdbevubm7jjn"]
 
 [ext_resource type="Texture2D" uid="uid://bg6jp24sxypgu" path="res://Assets/space_breaker_asset/Background/stars_texture.png" id="1_hiq8x"]
+[ext_resource type="Script" path="res://Scripts/testworld.gd" id="1_jqprm"]
 [ext_resource type="PackedScene" uid="uid://boukx5d4sftwv" path="res://Scene/behemoth.tscn" id="2_ias1o"]
+[ext_resource type="PackedScene" uid="uid://dbuidqd2mpla7" path="res://Scene/gravity_emitting_object.tscn" id="4_julsr"]
 
 [node name="testworld" type="Node2D"]
 position = Vector2(32, -62)
+script = ExtResource("1_jqprm")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -17,4 +20,14 @@ texture = ExtResource("1_hiq8x")
 [node name="Behemoth" parent="." instance=ExtResource("2_ias1o")]
 position = Vector2(1029, 1212)
 DryMass = 100000.0
+EngineForce = 1.5e+06
 RCSForce = 10000.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ShipStatsLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GravityEmittingObject" parent="." instance=ExtResource("4_julsr")]
+position = Vector2(-469, 909)
